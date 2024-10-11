@@ -22,7 +22,7 @@ def y_market_cap(ticker):
     info = yf.Ticker(ticker).fast_info
 
     return info['market_cap']
-
+    
 
 def fetch_gainers(api_key):
     url = f'https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey={api_key}'
@@ -71,7 +71,8 @@ if text_input:
         Parametros_de_visualizacion()
         corrida = datetime.now()
         corrida = corrida.strftime('%m-%d-%y %H:%M')
-        st.write(f'Datos actualizados el {corrida}')
+        st.write(f'Actualización de datos:')
+        st.write(corrida)
         Calcular_e_imprimir_df(api_key)
     else:
         st.write("Clave incorrecta")
