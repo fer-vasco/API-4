@@ -18,9 +18,9 @@ def y_market_cap(ticker):
     
 
 def y_volumen(ticker):
-    info = yf.Ticker(ticker).fast_info
+    datos = yf.Ticker(ticker)
 
-    return info['volume']
+    return datos.info['volume']
 
 
 def fetch_gainers(api_key):
