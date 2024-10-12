@@ -10,50 +10,33 @@ def Parametros_de_visualizacion():
     pd.set_option('display.width', 1000)
 
 
-
 def y_market_cap(ticker):
     info = yf.Ticker(ticker).fast_info
 
     return info['market_cap']
     
 
-def y_volumen(ticker):
-    
-    try:
-        datos = yf.Ticker(ticker)
-        volumen = datos.info['volume']
-
-    except:
-        volumen = 0
-
-    return volumen
-
-
 def fetch_gainers(api_key):
     url = f'https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey={api_key}'
     response = requests.get(url)
     gainers = response.json()
-
     
     df_empresas = pd.DataFrame()
     simbolos = []
     nombres = []
     cambios = []
     capitales = []
-    volumenes = []
     
-
     for gainer in gainers:
 
         simbolos.append(gainer['symbol'])
         nombres.append(gainer['name'])
         cambios.append(gainer['changesPercentage'])
         capitales.append(y_market_cap(gainer['symbol']))
-        volumenes.append(y_volumen(gainer['symbol']))
+        
 
-        df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales, volumenes)),
-               columns =['Ticker', 'Empresa', 'Cambio', 'Capital', 'Volumen'])
-
+    df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales, volumenes)),
+           columns =['Ticker', 'Empresa', 'Cambio', 'Capital'])
 
     df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
     df_empresas['Capital'] = round(df_empresas['Capital']/1000000,1).astype('str') + ' M'
