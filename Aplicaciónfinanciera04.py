@@ -54,8 +54,10 @@ def fetch_gainers(api_key):
         df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales, volumenes)),
                columns =['Ticker', 'Empresa', 'Cambio', 'Capital', 'Volumen'])
 
-        
+
     df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
+    df_empresas['Capital'] = round(df_empresas['Capital']/1000000,1).astype('str') + ' M'
+    df_empresas['Cambio'] = round(df_empresas['Cambio'],1).astype('str') + '%'
     df_empresas.set_index('Ticker', inplace=True)
     
     return df_empresas
