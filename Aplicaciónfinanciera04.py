@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import streamlit as st
-from datetime import datetime
+from datetime import datetime, timedelta
 import yfinance as yf
 
 
@@ -77,7 +77,7 @@ text_input = st.text_input("Clave 👇", type="password")
 if text_input:
     if str(text_input) == clave:
         Parametros_de_visualizacion()
-        corrida = datetime.now()
+        corrida = datetime.now() - timedelta(hours=3)
         corrida = corrida.strftime('%m-%d-%y %H:%M')
         st.write(f'Actualización de datos:')
         st.write(corrida)
