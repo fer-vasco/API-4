@@ -71,7 +71,7 @@ def Calcular_e_imprimir_df(api_key):
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
-st.title('🍁 Resultados! (y)')
+st.title('🍁 Resultados')
 text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
