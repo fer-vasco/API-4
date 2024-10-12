@@ -35,7 +35,7 @@ def fetch_gainers(api_key):
         capitales.append(y_market_cap(gainer['symbol']))
         
 
-    df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales, volumenes)),
+    df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales)),
            columns =['Ticker', 'Empresa', 'Cambio', 'Capital'])
 
     df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
