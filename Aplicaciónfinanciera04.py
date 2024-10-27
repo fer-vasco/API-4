@@ -67,8 +67,9 @@ text_input = st.text_input("Clave 👇", type="password")
 
 
 if text_input:
-    df = Graficar_tickers()
-    st.dataframe(df)
+    if str(text_input) == clave:
+        df = Graficar_tickers()
+        st.dataframe(df)
 
 exit()
 
