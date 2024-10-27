@@ -62,7 +62,7 @@ def Graficar_tickers():
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
-st.title('🍁 Resultados GIT')
+st.title('🍁 Resultados GIT 02')
 text_input = st.text_input("Clave 👇", type="password")
 
 
@@ -70,12 +70,13 @@ if text_input:
     if str(text_input) == clave:
         df = Graficar_tickers()
         st.dataframe(df)
+        for i in df.columns:
+            st.write(i)
+else:
+    st.write('Clave incorrecta')
+
 
 exit()
-
-
-
-
 
 
 
