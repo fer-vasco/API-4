@@ -55,7 +55,7 @@ def Graficar_tickers():
     companies = ['META'] 
     tickers = yf.Tickers(companies)
     tickers_hist = tickers.history(period='5d',interval='1d')
-    tik = tickers_hist['close']['META'].copy()
+    tik = tickers_hist['close', 'META'].copy()
     
     return tik
 
@@ -63,7 +63,7 @@ def Graficar_tickers():
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
-st.title('🍁 Resultados GIT 03')
+st.title('🍁 Resultados GIT 04')
 text_input = st.text_input("Clave 👇", type="password")
 
 
