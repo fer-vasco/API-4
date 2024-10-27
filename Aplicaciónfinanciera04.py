@@ -49,8 +49,14 @@ def fetch_gainers(api_key):
 def Calcular_e_imprimir_df(api_key):
     resultados = fetch_gainers(api_key)
     st.dataframe(resultados)
-    
 
+
+def Graficar_tickers():
+    companies = ['META'] 
+    tickers = yf.Tickers(companies)
+    tickers_hist = tickers.history(period='5d',interval='1d')
+    
+    return tickers_hist
 
 
 # Inicio del programa
@@ -58,6 +64,19 @@ api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
 st.title('🍁 Resultados')
 text_input = st.text_input("Clave 👇", type="password")
+
+
+if text_input:
+    df = Graficar_tickers()
+    st.dataframe(df)
+
+exit()
+
+
+
+
+
+
 
 if text_input:
     if str(text_input) == clave:
