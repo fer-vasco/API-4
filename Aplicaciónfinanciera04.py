@@ -62,7 +62,7 @@ def Graficar_tickers():
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
-st.title('🍁 Resultados')
+st.title('🍁 Resultados GIT')
 text_input = st.text_input("Clave 👇", type="password")
 
 
