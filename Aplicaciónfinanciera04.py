@@ -51,14 +51,6 @@ def Calcular_e_imprimir_df(api_key):
     st.dataframe(resultados)
 
 
-def Graficar_tickers():
-    companies = ['META'] 
-    tickers = yf.Tickers(companies)
-    tickers_hist = tickers.history(period='5d',interval='1d')
-    tik = tickers_hist['close', 'META'].copy()
-    
-    return tik
-
 
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
@@ -69,15 +61,9 @@ text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
     if str(text_input) == clave:
-        df = Graficar_tickers()
         st.dataframe(df)
-        for i in df.columns:
-            st.write(i)
 else:
     st.write('Clave incorrecta')
-
-
-exit()
 
 
 
