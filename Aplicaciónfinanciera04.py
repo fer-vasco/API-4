@@ -51,19 +51,11 @@ def Calcular_e_imprimir_df(api_key):
     st.dataframe(resultados)
 
 
-
 # Inicio del programa
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
 st.title('🍁 Resultados GIT 04.a')
 text_input = st.text_input("Clave 👇", type="password")
-
-
-if text_input:
-    if str(text_input) == clave:
-        st.dataframe(df)
-else:
-    st.write('Clave incorrecta')
 
 
 
